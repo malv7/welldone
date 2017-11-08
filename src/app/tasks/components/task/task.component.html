@@ -1,0 +1,22 @@
+<div [ngClass]="{ 'open' : expanded }">
+
+  <div class="taskHeading">
+    <div class="titleButton">
+      <i *ngIf="task.done"  (click)="done()" class="fa fa-check" [ngClass]="{ 'checkDone': task.done }"></i>
+      <i *ngIf="!task.done" (click)="done()" class="fa fa-bolt"  [ngClass]="{ 'checkDone': task.done }"></i>
+    </div>
+    <h1 (click)="expanded = !expanded" [ngClass]="{ 'headingDone': task.done }">
+      {{ task.title }}
+    </h1>
+  </div>
+
+  <div *ngIf="expanded" class="expanded">
+    <p [ngClass]="{ 'textDone': task.done }" [innerHTML]="task.description | linky"></p>
+    <div *ngIf="!task.done" class="editButtons">
+      <i class="fa fa-pencil"></i>
+      <i class="fa fa-trash-o" (click)="delete()"></i>
+    </div>
+
+  </div>
+
+</div>

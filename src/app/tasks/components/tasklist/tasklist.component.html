@@ -1,0 +1,23 @@
+<div class="person">
+
+  <div class="personHeading">
+    <div class="count">{{ tasksDone | async }}</div>
+    <div>
+      <i class="fa fa-trophy"></i>
+    </div>
+    <h1>[Person]</h1>
+  </div>
+
+  <div [ngStyle]="{ 'display': 'flex', 'margin': '1em 0 1em 0' }">
+    <i class="fa fa-caret-up"></i>
+    <h2>[Section]</h2>
+    <i (click)="edit = !edit" class="fa" [ngClass]="{ 'fa-plus': !edit, 'fa-times': edit }"></i>
+  </div>
+
+  <new-task (addTask)="add($event)" *ngIf="edit"></new-task>
+  
+  <div *ngIf="(taskIds | async)?.length > 0">
+    <task *ngFor="let id of taskIds | async" [id]="id"></task>
+  </div>
+  
+</div>

@@ -1,0 +1,21 @@
+textarea {
+  width: 80%;
+  min-height: 60px;
+  font-size: 0.8em;
+  font-family: 'Open Sans', sans-serif;
+  padding: 4px;
+}
+
+button {
+  font-size: 0.9em;
+  padding: 0.2em 0.4em 0.2em 0.4em;
+  background: rgba(167, 255, 25, 0.207);
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form {
+  margin-bottom: 2em;
+}

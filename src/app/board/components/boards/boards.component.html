@@ -1,0 +1,14 @@
+<div class="host" fxLayout="row" fxLayoutAlign="start center">
+
+    <form [formGroup]="form" fxLayout="row" fxLayoutAlign="start center">
+      <input class="createInput" formControlName="text">
+      <div *ngIf="form.valid" class="create" (click)="create()">ADD</div>
+    </form>
+
+  <div class="board" *ngFor="let board of boards | async" (click)="setNavigatedBoard(board.id)">
+    {{ board.name }}
+  </div>
+
+</div>
+
+<board *ngIf="currentBoard | async"></board>

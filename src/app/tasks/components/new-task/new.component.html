@@ -1,0 +1,4 @@
+<form [formGroup]="form">
+  <textarea formControlName="text"></textarea>
+  <div *ngIf="form.valid"><button (click)="add()" type="button">ADD</button></div>
+</form>

@@ -1,0 +1,70 @@
+@import './src/assets/toolkit';
+
+:host {
+  display: block;
+}
+
+h1 {
+  font-size: 0.95em;
+  cursor: pointer;
+}
+
+p {
+  font-size: 0.85em;
+  padding: 1em;
+}
+
+.titleButton {
+  color: rgb(191, 191, 191);
+  cursor: pointer;
+  display: flex;
+  margin-right: 0.2em;
+  justify-content: center;
+  width: 20px;
+}
+
+.fa-pencil, .fa-trash-o {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.131);
+  margin-left: 0.5em;
+}
+
+.fa-pencil:hover {
+  color: rgb(0, 145, 255);
+}
+
+.fa-trash-o:hover {
+  color: darkred;
+}
+
+.textDone {
+  background: rgba(167, 255, 25, 0.207) !important;
+}
+
+.headingDone {
+  color: rgb(12, 95, 1);
+  font-weight: bold;
+}
+
+.checkDone {
+  color: green;
+}
+
+.taskHeading {
+  display: flex;
+  margin-bottom: 0.2em;
+}
+
+.expanded {
+  margin-bottom: 1em;
+}
+
+.open {
+  background: rgba(255, 255, 224, 0.2);
+  border: 1px solid rgba(255, 255, 224, 0.837);
+}
+
+.editButtons {
+  display: flex;
+  justify-content: flex-end;
+}

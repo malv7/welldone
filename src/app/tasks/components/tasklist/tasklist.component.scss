@@ -1,0 +1,75 @@
+:host {
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgb(57, 7, 73);
+  margin-right: 5em;
+}
+
+h2 {
+  font-size: 0.8em;
+}
+
+.person {
+  width: 400px;
+}
+
+.personHeading {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+}
+
+.count {
+  margin-right: 0.6em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+  color: green;
+  font-weight: bold;
+}
+
+.fa-trophy {
+  margin-right: 0.6em;
+}
+
+.fa-plus, .fa-times {
+  margin: 0.1em 0 0 1em;
+  cursor: pointer;
+}
+
+.fa-plus {
+  color: darkgreen;
+}
+
+.fa-times {
+  color: darkred;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+}
+
+.add {
+  margin-bottom: 1em;
+  border: 1px solid black;
+  padding: 0.35em 0.5em 0.3em 0.5em;
+  width: 35px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add:hover {
+  background: rgba(167, 255, 25, 0.207);
+}
+
+.fa-caret-up {
+  margin-right: 0.6em;
+  color: lightgray;
+}
