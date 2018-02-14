@@ -5,7 +5,7 @@ import { Task, User } from './tasks/models';
 import { Board } from './board/board.model';
 
 export interface State {
-  board: fromBoard.State;
+  // board: fromBoard.State;
   tasks: fromTasks.State;
   user: fromUser.State;
 }
@@ -13,18 +13,14 @@ export interface State {
 export const reducers = {
   tasks: fromTasks.reducer,
   user: fromUser.reducer,
-  board: fromBoard.reducer
+  // board: fromBoard.reducer
 }
 
 // Boards
 /////////
-export function selectBoards(state: State): Board[] {
-  return state.board.boards;
-}
-
-export function selectCurrentBoard(state: State): Board {
-  return state.board.currentBoard;
-}
+// export function selectBoards(state: State): Board[] {
+//   return state.board.boards;
+// }
 
 // User
 ///////

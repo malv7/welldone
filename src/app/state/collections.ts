@@ -2,7 +2,7 @@ import { AngularFirestoreCollection } from "angularfire2/firestore";
 import { User, Section, Task } from "../tasks/models";
 import { Board } from "../board/board.model";
 
-export const USERS = 'users/';
+export const USERS = '/users/';
 export const BOARDS = '/boards/';
 export const SECTIONS = '/sections/';
 export const TASKS = '/tasks/';

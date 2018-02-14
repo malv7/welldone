@@ -8,6 +8,8 @@ import { Store } from "@ngrx/store";
 import * as fromRoot from './../../reducers';
 import { User } from "../../tasks/models";
 
+import 'rxjs/add/operator/take';
+
 @Injectable()
 export class BoardService {
 
@@ -26,12 +28,22 @@ export class BoardService {
 
   createBoard(name: string): void {
     const boards = this.afs.collection<Board>(USERS + this.user.id + BOARDS);
-    const board: Board = { name: name };
+    const board: Board = { id: '', name: name };
     persist(boards, board);
   }
 
   getBoards(): Observable<Board[]> {
     return this.afs.collection<Board>(USERS + this.user.id + BOARDS).valueChanges();
+  }
+
+  // TODO: evaluate, when is user there?
+  deleteAllBoards(): void {
+    
+    console.log(this.user);
+
+    this.afs.collection<Board>(USERS + this.user.id + BOARDS).valueChanges().take(1).subscribe(boards => {
+      boards.forEach(board => this.afs.doc(USERS + this.user.id + BOARDS + board.id).delete());
+    });
   }
 
 }

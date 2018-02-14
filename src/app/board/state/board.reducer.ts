@@ -1,33 +1,30 @@
+import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { createFeatureSelector } from '@ngrx/store';
 import * as BoardActions from './board.actions';
 import { Board } from '../board.model';
 
-export interface State {
-  boards: Board[]
-  currentBoard: Board; // id
-}
+export interface BoardState extends EntityState<Board> { }
 
-const initialState: State = {
-  boards: [],
-  currentBoard: undefined
-}
+const boardAdapter = createEntityAdapter<Board>();
+const initialState: BoardState = boardAdapter.getInitialState();
 
-export function reducer(state = initialState, action: BoardActions.All): State {
-  switch (action.type) {
+export function boardReducer() {
+//   state: BoardState = initialState,
+//   action: BoardActions.All
+// ): BoardState {
 
-    case BoardActions.GET_BOARDS_SUCCESS: {
-      return {
-        ...state,
-        boards: action.payload.boards
-      }
-    }
+//   switch (action.type) {
+//     case BoardActions.ADD_ONE:
+//       return boardAdapter.addOne(action.board, state);
+      
+//     case BoardActions.UPDATE_ONE:
+//       return boardAdapter.updateOne({ id: action.id, changes: action.changes}, state);
 
-    case BoardActions.SET_CURRENT_BOARD: {
-      return {
-        ...state,
-        currentBoard: action.payload.board
-      }
-    }
+//     case BoardActions.GET_ALL_SUCCESS:
+//       return { ...state,  }
+      
+//     default:
+//       return state;
+//   }
 
-    default: return state;
-  }
 }

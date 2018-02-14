@@ -1,14 +1,19 @@
 <div class="host" fxLayout="row" fxLayoutAlign="start center">
 
-    <form [formGroup]="form" fxLayout="row" fxLayoutAlign="start center">
-      <input class="createInput" formControlName="text">
-      <div *ngIf="form.valid" class="create" (click)="create()">ADD</div>
-    </form>
+  <form [formGroup]="form" fxLayout="row" fxLayoutAlign="start center">
+    <input class="createInput" formControlName="text">
+    <div *ngIf="form.valid" class="create" (click)="create()">ADD</div>
+  </form>
 
-  <div class="board" *ngFor="let board of boards | async" (click)="setNavigatedBoard(board.id)">
-    {{ board.name }}
+  <!-- boards in top bar -->
+  <div *ngFor="let board of boards | async" class="board" [routerLink]="['board', board.id]">
+    {{ board.name }} ({{ board.id }})
   </div>
 
 </div>
 
-<board *ngIf="currentBoard | async"></board>
+<!-- boards in content area -->
+<div class="testBoards" *ngFor="let board of boards | async">
+  {{ board | json }}
+  <button (click)="deleteBoard(board.id)">DEL</button>
+</div>

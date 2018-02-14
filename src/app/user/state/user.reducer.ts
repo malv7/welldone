@@ -19,7 +19,7 @@ export function reducer(state = initialState, action: UserActions.All): State {
       return { ...state, fontsize: action.payload.fontsize };
     }
 
-    case UserActions.GET_USER: {
+    case UserActions.SET_USER: {
       return { ...state, user: action.payload.user };
     }
   

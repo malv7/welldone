@@ -5,8 +5,7 @@ import { UserService } from "../user.service";
 @Component({
   selector: 'login',
   template: `
-  
-    
+
     <form [formGroup]="form">
       <div class="c">
         <div>Email</div>
@@ -59,9 +58,7 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
-  constructor(private userService: UserService) {
-    
-  }
+  constructor(private userService: UserService) { }
 
   login(): void {
     const email = this.form.get('email').value;

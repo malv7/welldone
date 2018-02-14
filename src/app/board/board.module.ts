@@ -1,18 +1,20 @@
 import { NgModule } from "@angular/core";
 import { BoardService } from "./services/board.service";
-import { CommonModule } from "@angular/common";
-import { ReactiveFormsModule } from "@angular/forms";
 import { BoardsComponent } from "./components/boards/boards.component";
 import { BoardComponent } from "./components/board/board.component";
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from "@angular/router";
+import { StoreModule } from "@ngrx/store";
+import * as fromBoard from './state/board.reducer';
+import { EffectsModule } from "@ngrx/effects";
+import { SharedModule } from "../shared/shared.module";
+import { BoardEffects } from "./state/board.effects";
 
 @NgModule({
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FlexLayoutModule, // flex
-    RouterModule
+    RouterModule,
+    StoreModule.forFeature('board', fromBoard.boardReducer),
+    EffectsModule.forFeature([BoardEffects]),
+    SharedModule
   ],
   declarations: [ BoardComponent, BoardsComponent ],
   exports: [ BoardsComponent ],

@@ -2,10 +2,10 @@ import { Action } from '@ngrx/store';
 import { User } from '../../tasks/models';
 
 export const UPDATE_FONTSIZE = '[User Config] Update font size';
-export const GET_USER = '[User] Update user (<-)';
+export const SET_USER = '[User] Update user (<-)';
 
-export class GetUser implements Action {
-  readonly type = GET_USER;
+export class SetUser implements Action {
+  readonly type = SET_USER;
   constructor(public payload: { user: User }) { }
 }
 
@@ -16,4 +16,4 @@ export class UpdateFontsize implements Action {
 
 export type All
   = UpdateFontsize
-  | GetUser;
+  | SetUser;

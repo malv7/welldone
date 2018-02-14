@@ -8,12 +8,16 @@ import { UserService } from './user/user.service';
 @Component({
   selector: 'app-root',
   template: `
+    <!--
     <div [ngStyle]="{ 'font-size': (fontSize | async) }">
       <user-configuration></user-configuration>
-      <boards *ngIf="user | async"></boards>
+      <router-outlet *ngIf="user | async"></router-outlet>
       <login *ngIf="!(user | async)"></login>
     </div>
-    {{ user | async | json }} (app.component)
+    -->
+    <boards *ngIf="user | async"></boards>
+    <router-outlet></router-outlet>
+    <!-- {{ user | async | json }} (app.component) -->
   `,
   styles: [`
 
@@ -32,9 +36,11 @@ export class AppComponent {
 
   constructor(
     private store: Store<fromRoot.State>,
-    private userService: UserService // IMPORTANT!!!
+    // inject userService on bootstrap of app.component to guarantee user auth afap.
+    // private userService: UserService
   ) {
     this.fontSize = this.store.select(fromRoot.selectFontSize);
     this.user = this.store.select(fromRoot.getUser);
+    // this.user.subscribe(user => console.log(user));
   }
 }
